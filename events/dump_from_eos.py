@@ -18,10 +18,12 @@ logger.addHandler(ch)
 
 
 parser = argparse.ArgumentParser(
-    description='Dump raw events from run files on EOS')
-parser.add_argument('--events', help='File with events numbers', required=True)
-parser.add_argument('--eos', help='EOS path to run files', required=True)
-parser.add_argument('--bylb', help='Dump by lumi block', action='store_true', default=False)
+    description='Dump selected raw events from RAW files on EOS to a single RAW file (can be slow) or to several RAW files by lumi block (--bylb parameter)',
+    epilog='Example: dump_from_eos.py --events BadEvents.txt --eos /eos/atlas/atlastier0/rucio/data15_cos/express_express/00266661/data15_cos.00266661.express_express.merge.RAW --bylb'
+)
+parser.add_argument('--events', help='File with events numbers, e.g BadEvents.txt', required=True)
+parser.add_argument('--eos', help='EOS path to run files, e.g "/eos/atlas/atlastier0/rucio/data15_cos/express_express/00266661/data15_cos.00266661.express_express.merge.RAW"', required=True)
+parser.add_argument('--bylb', help='Dump events per lumi block file', action='store_true', default=False)
 args = parser.parse_args()
 
 re_lb = re.compile(r"_lb(\d+)")
