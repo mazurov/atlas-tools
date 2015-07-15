@@ -65,15 +65,15 @@ erge.RAW --bylb
 `hist_by_run.py` - process monitoring histogram by run number 
 
 
-```sh
-$ ./hist_by_run.py -h
+```txt
+$ ~amazurov/public/tools/hist_by_run.py -h
 usage: hist_by_run.py [-h] [-t TAG] [-p PROJECT] [-s STREAM] [-f FOLDER] [-b]
                       [-d] [--save-hists SAVE_HISTS]
                       run
 
 Find a histogram by the run number and do some operations on it. For example,
-you can (1) open ROOT browser with all histograms (2) dump all error numbers
-(3) save histograms into pdf.
+you can (1) open ROOT browser with all histograms (2) dump all error event
+numbers (3) save histograms into pdf.
 
 positional arguments:
   run                   Run number
@@ -89,14 +89,14 @@ optional arguments:
                         Monitoring folder (default: L1Calo)
   -b, --browser         Open first histogram in ROOT browser (default: False)
   -d, --dump-bad-events
-                        Scan all histograms with error events and dump it to
-                        separate file (default: False)
+                        Scan all histograms with error events and dump error
+                        numners into file (default: False)
   --save-hists SAVE_HISTS
-                        Save histograms from the list to png and pdf format
-                        (default: None)
+                        Save histograms from the list of histograms names
+                        (separated by comma) to pdf file. (default: None)
 
-Example: hist_by_run.py --browser --dump-bad-events --save-hists GlobalOverview,Mismatch 271516
-
+Example: hist_by_run.py --browser --dump-bad-events --save-hists
+GlobalOverview,Mismatch 271516
 ```
 
 Output:

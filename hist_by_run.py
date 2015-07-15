@@ -116,7 +116,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="""Find a histogram by the run number and do some operations on it.
         For example, you can (1) open ROOT browser with all histograms
-        (2) dump all error numbers (3) save histograms into pdf.
+        (2) dump all error event numbers (3) save histograms into pdf.
         """,
         epilog='Example: hist_by_run.py --browser --dump-bad-events --save-hists GlobalOverview,Mismatch 271516',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
@@ -132,10 +132,10 @@ if __name__ == '__main__':
     parser.add_argument(
         '-b', '--browser', help='Open first histogram in ROOT browser', action='store_true')
     parser.add_argument(
-        '-d', '--dump-bad-events', help='Scan all histograms with error events and dump it to separate file', action='store_true')
+        '-d', '--dump-bad-events', help='Scan all histograms with error events and dump error numners into file', action='store_true')
     parser.add_argument(
         '--save-hists',
-        help='Save histograms from the list to png and pdf format')
+        help='Save histograms from the list of histograms names (separated by comma) to pdf file.')
 
     parser.add_argument('run', type=int, help='Run number')
     args = parser.parse_args()
