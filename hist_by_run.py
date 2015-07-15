@@ -118,7 +118,8 @@ if __name__ == '__main__':
         For example, you can (1) open ROOT browser with all histograms
         (2) dump all error numbers (3) save histograms into pdf.
         """,
-        epilog='Example: hist_by_run.py --open --dump_bad_events 271516'
+        epilog='Example: hist_by_run.py --browser --dump-bad-events --save-hists GlobalOverview,Mismatch 271516',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
 
     parser.add_argument('-t', '--tag', help='AMI tag')
